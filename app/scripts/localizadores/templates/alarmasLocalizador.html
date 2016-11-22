@@ -1,0 +1,32 @@
+
+		  <div class="list">
+        <div ng-show="vm.alarmas.length > 0">
+          <label class="item item-divider row">
+            <div class="col col-50">
+              Tipo
+            </div>
+            <div class="col col-25">
+              Fecha
+            </div>
+            <div class="col col-25">
+              Número repeticiones
+            </div>
+          </label>
+          <label class="item row" ng-repeat="alarma in vm.alarmas">
+            <div class="col col-50">
+              {{alarma.evento}}
+            </div>
+            <div class="col col-25">
+              {{alarma.fecha}}
+            </div>
+            <div class="col col-25">
+              {{alarma.numeroAlarmasProducidas}}
+            </div>
+          </label>
+        </div>
+
+        <div style="width:100%; height:50px; font-size:17px; text-align:center; margin-top:20px;" ng-show="vm.alarmas.length === 0">
+          Este localizador no tiene alarmas
+        </div>
+          
+			</div>

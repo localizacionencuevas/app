@@ -1,0 +1,16 @@
+
+			<div class="list">
+				<div class="item item-button-right" ng-repeat="localizador in vm.localizadores | orderBy:'nombre' | filter:vm.filtrar" ng-click="vm.functions.toDetLocalizador(localizador.id, localizador.indice)">
+		  			{{localizador.nombre}}
+					<button class="button goBtn" ng-class="{ 'button-balanced': localizador.drawed, 'button-assertive': !localizador.drawed }">
+						<i class="icon ion-wifi"></i>
+					</button>
+					<!-- <button class="button goBtn" ng-class="{ 'button-balanced': localizador.nombre_estado === 'Conectado', 'button-assertive': localizador.nombre_estado === 'Desconectado', 'button-energized': localizador.nombre_estado === 'Mantenimiento' }">
+						<i class="icon ion-wifi"></i>
+					</button> -->
+				</div>
+				<div ng-show="vm.routers.length === 0" style="text-align:center;margin-top:30px">
+					Esta instalación no tiene localizadores en la planta actual
+				</div>
+			</div>
+		</div>

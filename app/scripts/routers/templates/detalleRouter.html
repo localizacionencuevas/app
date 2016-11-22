@@ -1,0 +1,48 @@
+
+  		<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre:</span>
+  			    <label ng-bind="::vm.router.nombre"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Código:</span>
+  			    <label ng-bind="::vm.router.codigo"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Estado:</span>
+  			    <label ng-bind="::vm.router.nombre_estado"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Ubicación:</span>
+            <label ng-bind="::vm.router.nombre_ubicacion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Posición:</span>
+            <label ng-bind="::vm.router.posicion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Tiene Sensor:</span>
+            <label ng-bind="vm.functions.tieneSensor(vm.router.tieneSensor)"></label>
+        </label>
+  			<label ng-show="vm.router.tieneSensor" class="item item-input">
+  			    <span class="input-label">Posición Sensor:</span>
+  			    <label ng-bind="::vm.router.posicionInfoSensores"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Última Actualización:</span>
+  			    <label ng-bind="vm.functions.transformDate(vm.router.ultimaActualizacion)"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Alta:</span>
+  			    <label ng-bind="vm.router.fechaAlta | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Modificación:</span>
+  			    <label ng-bind="vm.router.fechaModificacion | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Observaciones:</span>
+  			    <label ng-bind="::vm.router.observaciones"></label>
+  			</label>
+			</div>
+		</div>

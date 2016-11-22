@@ -1,0 +1,96 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+
+	<div class="list">
+		<div class="item item-divider item-button-right nomInst mRouter" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()" ng-class="{ 'titulo-padding': vm.vista === 'Listado de Routers'}">
+			{{vm.titulo}}
+
+			<button ng-show="vm.vista !== 'Listado de Routers'" class="button ion-home button-icon pull-right backFicha ngHide" ng-click="vm.functions.toListaRouters()">
+			</button>
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+
+		<div class="bar item-input-inset" ng-show="vm.vista === 'Listado de Routers'">
+		    <div class="item-input-wrapper">
+		      <i class="icon ion-ios7-search placeholder-icon"></i>
+		      <input type="search" placeholder="Filtrar" ng-model="vm.filtrar" ng-change="vm.functions.resizeScroll()">
+		    </div>
+		        <button class="button button-clear" ng-click="vm.filtrar=''">
+		          Limpiar
+		        </button>
+		</div>
+
+	</div>
+	
+	<ion-content padding="false" ng-class="{ 'has-footer': vm.vista !== 'Listado de Routers', 'top-content38': ((vm.vista !== 'Listado de Routers') && $parent.$parent.vm.mapaVisible), 'top-content80': ((vm.vista === 'Listado de Routers') && $parent.$parent.vm.mapaVisible), 'top-content105': ((vm.vista === 'Listado de Routers') && !$parent.$parent.vm.mapaVisible), 'top-content64': ((vm.vista !== 'Listado de Routers') && !$parent.$parent.vm.mapaVisible)}">
+
+		<div ng-switch on="vm.vista" class="has-header">
+
+			<div class="animate-switch" ng-switch-when="Listado de Routers">
+				<div ng-include="'scripts/routers/templates/listaRouters.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Detalle del Router">
+				<div ng-include="'scripts/routers/templates/detalleRouter.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Localizadores del Router">
+				<div ng-include="'scripts/routers/templates/localizadoresRouter.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Sensores del Router">
+				<div ng-include="'scripts/routers/templates/sensoresRouter.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Calibrar Router">
+				<div ng-include="'scripts/routers/templates/calibrarRouter.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+		</div>
+
+			
+
+	</ion-content>
+
+    <div class="tabs tabs-icon-top nuevosTabs mRouter" ng-hide="vm.vista === 'Listado de Routers'">
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Detalle del Router'}" ng-click="vm.functions.toDetRouter()">
+    		<i class="icon ion-document-text"></i>
+    		Detalles
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Localizadores del Router'}" ng-click="vm.functions.toPartials('Localizadores del Router')">
+    		<i class="icon ion-location"></i>
+    		Localizadores
+    	</a>
+    	<a class="tab-item" ng-show="vm.router.tieneSensor" ng-class="{ 'active': vm.vista === 'Sensores del Router'}" ng-click="vm.functions.toPartials('Sensores del Router')">
+    		<i class="icon ion-thermometer"></i>
+    		Sensores
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Calibrar Router'}" ng-click="vm.functions.toPartials('Calibrar Router')">
+    		<i class="icon ion-speedometer"></i>
+    		Calibrar
+    	</a>
+    	
+    </div>
+</ion-view>

@@ -1,0 +1,52 @@
+<ion-view hide-back-button="true" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons>
+
+  <!-- Contenido -->
+  	<ion-content padding="false" class="fichaInstalaciones" scroll="false">
+  		<div class="list">
+		  <div class="item item-divider nomInst" ng-click="vm.functions.toDetalles()">
+		    Detalles Instalación
+		  </div>
+		  <div class="list">
+		  	<div class="row customFlex">
+
+		  		<button style="height:{{vm.heightPanel}}" class="item item-avatar col-50 mosaico mRouter" ng-click="vm.functions.toRouter()">
+		  			<img src="images/router.png" alt=""> 
+		  			<h1>Routers</h1>
+		    		<label>{{vm.totalRouters}}/{{vm.totalDispositivos}}</label>
+		  		</button>
+		  		
+		  		<button style="height:{{vm.heightPanel}}" class="item item-avatar col-50 mosaico mAgentes" ng-click="vm.functions.toAgentes()">
+		    		<img src="images/agente.png" alt=""> 
+		    		<h1>Agentes</h1>
+		    		<label>{{vm.totalAgentes}}/{{vm.totalDispositivos}}</label>
+		  		</button>
+
+		  		<button style="height:{{vm.heightPanel}}" class="item item-avatar col-50 mosaico mLocalizadores" ng-click="vm.functions.toLocalizadores()">
+		    		<img src="images/localizador.png" alt=""> 
+		    		<h1>Localizadores</h1>
+		    		<label>{{vm.totalLocalizadores}}/{{vm.totalDispositivos}}</label>
+		  		</button>
+
+		  		<button style="height:{{vm.heightPanel}}" class="item item-avatar col-50 mosaico mActuadores" ng-click="vm.functions.toActuadores()">
+		    		<img src="images/actuador.png" alt=""> 
+		    		<h1>Actuadores</h1>
+		    		<label>{{vm.totalActuadores}}/{{vm.totalDispositivos}}</label>
+		  		</button>
+
+		  	</div>
+		  </div>
+		</div>
+	</ion-content>
+	    <div class="tabs tabs-icon-left" ng-class="{ 'tabsFichaAlarma': vm.alarmasPendientes, 'tabsFichaNoAlarma': !vm.alarmasPendientes }">
+	  		<a ng-click="vm.functions.toAlarmas()">
+	    		<i class="icon" ng-class="{ 'ion-alert-circled': vm.alarmasPendientes, 'ion-checkmark-round': !vm.alarmasPendientes }"></i>
+	    		{{vm.textoAlarmas}}
+	  		</a>
+		</div>
+</ion-view>

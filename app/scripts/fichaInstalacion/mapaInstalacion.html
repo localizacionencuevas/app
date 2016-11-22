@@ -1,0 +1,40 @@
+<ion-view>
+
+  	<ion-content padding="false" class="fichaInstalaciones has-header" scroll="false">
+  		<div style="position:relative;height:{{vm.heightMapa}}; display: {{vm.displayMapa}}">
+  			<leaflet ng-if="vm.instalacionCargada" data-tap-disabled="true" id="mapa2" defaults="defaultsFicha" layers="layersFicha" maxbounds="maxboundsFicha" center="centroFicha" markers="markersFicha" controls="controlsFicha" height="{{vm.heightMapa}}">
+        </leaflet>
+
+        <info-Sin-Posicion ng-show="$parent.vm.infoVisible" class="{{$parent.vm.functions.colorInfo()}}"></info-Sin-Posicion>
+
+        <div id="refrescar-instalacion" class="button-icon ion-refresh"  ng-click="vm.functions.refrescarInstalacion()">
+        </div>
+
+        <div id="plantasInfo" ng-show="!vm.btnPlantasVisible" class="dropdown">Planta {{vm.plantaActualInstalacion.planta}}
+        </div>
+
+        <div id="plantas" ng-show="vm.btnPlantasVisible" ng-class="{ pulsado: vm.menuPlantasVisible }" class="dropdown" ng-click="vm.menuPlantasVisible = !vm.menuPlantasVisible">Planta {{vm.plantaActualInstalacion.planta}}<span class="caret"></span>
+            <ul class="menuPlantas" ng-show="vm.menuPlantasVisible">
+              <li ng-repeat="planta in vm.plantasInstalacion">
+                  <div ng-click="vm.functions.cambioDePlanta(planta.planta)">Planta {{planta.planta}}</div>
+              </li>
+            </ul>
+        </div>
+  		</div>
+    	
+  		<!-- <div class="contInstalacion" style="position:relative; height:{{vm.heightContent}}" ng-class="{'animacion-DragUp': vm.onDragUp, 'animacion-DragDown': vm.onDragDown}" toggle-Contenido> -->
+
+      <div class="contInstalacion" style="position:relative; height:{{vm.heightContent}}" toggle-Contenido >
+
+        <div style="position:absolute; top:-20px;width:100%" ng-hide="vm.functions.upVisible()" ng-click="vm.functions.onDragUp()">
+          <div style="width:50px; margin: 0 auto;">
+            <img src="images/UpArrow.png"> 
+          </div>
+        </div>
+
+  			<ion-nav-view animation="slide-left-right" name='contenido2'></ion-nav-view>
+  		</div>
+    	
+
+  	</ion-content>
+</ion-view>

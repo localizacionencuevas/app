@@ -1,0 +1,14 @@
+
+		  <div class="list">
+
+        <label class="item item-input">
+          <span class="input-label">Temperatura:</span>
+            <label ng-show="vm.sensor.temp !== '-'"> {{vm.sensor.temp}} °C</label>
+            <label ng-show="vm.sensor.temp === '-'"> No hay lecturas de temperatura</label>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Humedad Relativa:</span>
+            <label ng-show="vm.sensor.hum !== '-'"> {{vm.sensor.hum}} %</label>
+            <label ng-show="vm.sensor.hum === '-'"> No hay lecturas de humedad</label>
+        </label> 
+			</div>

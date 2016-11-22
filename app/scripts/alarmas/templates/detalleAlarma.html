@@ -1,0 +1,32 @@
+
+  		<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre Alarma:</span>
+  			    <label ng-bind="::vm.alarma.nombre_alarma"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Observaciones:</span>
+  			    <label ng-bind="::vm.alarma.observaciones_alarma"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Código dispositivo:</span>
+  			    <label ng-bind="::vm.alarma.codigo_dispositivo"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Fecha Inicio:</span>
+            <label ng-bind="::vm.alarma.fechaInicioAlarma | date:'short'"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Número alarmas producidas:</span>
+            <label ng-bind="::vm.alarma.numeroAlarmasProducidas"></label>
+        </label>
+        <hr>
+        <div>
+        <button style="width: 180px; margin: 5px 50px 0px;" class="button button-positive" ng-click="vm.functions.irADispositivo()">
+          <span>Ir a dispositivo</span>
+        </button>
+        <button style="width: 180px; margin: 5px 50px 0px;" class="button button-dark" ng-click="vm.functions.MonitorizarAlarma()">
+          <span>Monitorizar alarma</span>
+        </button>
+        </div>
+			</div>

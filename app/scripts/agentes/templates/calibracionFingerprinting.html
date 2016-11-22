@@ -1,0 +1,89 @@
+<div>
+    <div class="list">
+
+        <div style="padding-left:15px; padding-right:15px; text-align:left; font-size:16px;">
+            <div>Introduce el código del localizador:</div>
+            <div class="row">
+                <input type="text" style="border:1px solid #333; padding-left:10px;" class="col col-33" ng-model="vm.codigoLocalizadorFingerprinting" />
+                <div class="col col-25">
+                    
+                </div>
+                <button ng-show="!vm.localizadorSeleccionado" type="button" class="col col-25 button button-positive" ng-click="vm.functions.buscarLocalizador()">
+                  <i class="icon ion-checkmark-round"></i><span style="margin-left:6px">Hecho</span>
+                </button>
+                <button ng-show="vm.localizadorSeleccionado && !vm.capturando && !vm.explorando" type="button" class="col col-25 button button-assertive" ng-click="vm.functions.resetFingerprinting()">
+                  <i class="icon ion-reply-all"></i><span style="margin-left:6px">Reset</span>
+                </button>
+            </div>
+        </div>
+
+        <div ng-show="vm.localizadorNoEncontrado" style="padding-left:15px; text-align:center; font-size:16px;">
+            El código de localizador no corresponde con ninguno de la instalación
+        </div>
+
+        <div ng-show="vm.localizadorSeleccionado && !vm.exploracionTerminada" style="padding-left:15px; padding-right:15px; text-align:left; font-size:16px;">
+            <div>Introduce número de muestras para la exploración inicial:</div>
+            <div class="row">
+                <input type="number" style="border:1px solid #333; padding-left:10px;" class="col col-33" ng-model="vm.numeroMuestrasExploracion" />
+                <div class="col col-25">
+                    
+                </div>
+                <button ng-show="vm.localizadorSeleccionado && !vm.explorando" type="button" class="col col-25 button button-balanced" ng-click="vm.functions.empezarExploracion()">
+                  <i class="icon ion-play"></i><span style="margin-left:6px">Empezar exploración</span>
+                </button>
+            </div>
+        </div>
+
+        <div ng-show="vm.exploracionTerminada" style="padding-left:15px; padding-right:15px; text-align:left; font-size:16px;">
+            <div>Introduce número de medidas a tomar:</div>
+            <div class="row">
+                <input type="number" style="border:1px solid #333; padding-left:10px;" class="col col-33" ng-model="vm.numeroMedidas" />
+                <div class="col col-25">
+                    
+                </div>
+                <button ng-show="!vm.muestrasIncluidas" type="button" class="col col-25 button button-positive" ng-click="vm.functions.activarFingerprinting()">
+                  <i class="icon ion-checkmark-round"></i><span style="margin-left:6px">Hecho</span>
+                </button>
+                <button ng-show="vm.localizadorPosicionado && !vm.capturando" type="button" class="col col-25 button button-balanced" ng-click="vm.functions.empezarCaptura()">
+                  <i class="icon ion-play"></i><span style="margin-left:6px">Empezar</span>
+                </button>
+                <button ng-show="vm.localizadorPosicionado && vm.capturando" type="button" class="col col-25 button button-assertive" ng-click="vm.functions.pararCaptura()">
+                  <i class="icon ion-stop"></i><span style="margin-left:6px">Parar</span>
+                </button>
+            </div>
+            <div>Detalle análisis (0 evita que los datos se procesen automaticamente):</div>
+            <div class="row">
+                <input type="number" min="0" style="border:1px solid #333; padding-left:10px;" class="col col-33" ng-model="vm.detalleAnalisis" />
+            </div>
+        </div>
+    </div>
+
+    <div style="padding-left:15px; padding-right:15px; text-align:left; font-size:15px;" ng-show="vm.muestrasIncluidas">
+        <div>Sitúa en el mapa el lugar de la medida y ajusta la posición con los botones:</div>
+        <div class="row">
+            <label class="input-label">Latitud: </label>
+            <div style="margin-top:6px;" ng-bind="vm.posicionLocalizador.lat"></div>
+            <label style="margin-left:50px;" class="input-label">Longitud: </label>
+            <div style="margin-top:6px;" ng-bind="vm.posicionLocalizador.lng"></div>
+        </div>
+            
+        <div class="row" style="padding-left:10px; padding-right:10px; font-size:20px;">
+            <button style="width: 200px; margin: 10px;" class="col col-10 button button-dark" ng-click="vm.functions.moverLocalizador('lat', 1)">
+              <span class="icon ion-arrow-up-b"></span>
+            </button>
+            <button style="width: 200px; margin: 10px;" class="col col-10 button button-dark" ng-click="vm.functions.moverLocalizador('lat', -1)">
+              <span class="icon ion-arrow-down-b"></span>
+            </button>
+            <div class="col col-33">
+                
+            </div>
+            <button style="width: 200px; margin: 10px;" class="col col-10 button button-dark" ng-click="vm.functions.moverLocalizador('lng', -1)">
+              <span class="icon ion-arrow-left-b"></span>
+            </button>
+            <button style="width: 200px; margin: 10px;" class="col col-10 button button-dark" ng-click="vm.functions.moverLocalizador('lng', 1)">
+              <span class="icon ion-arrow-right-b"></span>
+            </button>
+        </div>
+    </div>
+</div>
+    

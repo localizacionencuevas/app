@@ -1,0 +1,30 @@
+
+		  	<div class="list">
+
+          <label class="item item-divider row">
+            <div class="col col-40">
+                Usuario
+            </div>
+            <div class="col col-40">
+                Fecha
+            </div>
+            <div class="col col-20">
+                Estado
+            </div>
+          </label>
+
+          <label class="item row" ng-repeat="prestamo in vm.localizador.ultimos_prestamos">
+            <div class="col col-40" ng-bind="prestamo.nombre_usuario_prestamo">
+            </div>
+            <div class="col col-40" ng-bind="vm.functions.transformDate(prestamo.fecha)">
+            </div>
+            <div class="col col-20" ng-bind="prestamo.nombre_estado">
+            </div>
+
+          </label>
+
+          <div ng-show="vm.localizador.ultimos_prestamos.length === 0" style="text-align:center;margin-top:30px">
+            Este localizador no ha tenido usuarios
+          </div>
+          			  
+			</div>

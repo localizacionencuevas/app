@@ -1,0 +1,13 @@
+
+			<div class="list">
+				<div class="item item-button-right" ng-repeat="agente in vm.agentes | orderBy:'nombre' | filter:vm.filtrar" ng-click="vm.functions.toDetAgente(agente.id, agente.indice)">
+		  			{{agente.nombre}}
+					<button class="button goBtn" ng-class="{ 'button-balanced': agente.nombre_estado === 'Conectado', 'button-assertive': agente.nombre_estado === 'Desconectado', 'button-energized': agente.nombre_estado === 'Mantenimiento' }">
+						<i class="icon ion-wifi"></i>
+					</button>
+				</div>
+				<div ng-show="vm.agentes.length === 0" style="text-align:center;margin-top:30px">
+					Esta instalación no tiene agentes WSN en la planta actual
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,108 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+
+	<div class="list">
+		<div class="item item-divider item-button-right nomInst mLocalizadores" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()" ng-class="{ 'titulo-padding': vm.vista === 'Listado de Localizadores'}">
+			{{vm.titulo}}
+			<!-- {{vm.router.nombre}} -->
+
+			<button class="button button-icon pull-right ion-home backFicha ngHide" ng-show="vm.vista !== 'Listado de Localizadores'" ng-click="vm.functions.toListaLocalizadores()">
+			</button>
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+
+		<div class="bar item-input-inset" ng-show="vm.vista === 'Listado de Localizadores'">
+		    <div class="item-input-wrapper">
+		      <i class="icon ion-ios7-search placeholder-icon"></i>
+		      <input type="search" placeholder="Filtrar" ng-model="vm.filtrar" ng-change="vm.functions.resizeScroll()">
+		    </div>
+		        <button class="button button-clear" ng-click="vm.filtrar=''">
+		          Limpiar
+		        </button>
+		</div>
+		
+	</div>
+	
+	<ion-content padding="false" ng-class="{ 'has-footer': vm.vista !== 'Listado de Localizadores', 'top-content38': ((vm.vista !== 'Listado de Localizadores') && $parent.$parent.vm.mapaVisible), 'top-content80': ((vm.vista === 'Listado de Localizadores') && $parent.$parent.vm.mapaVisible), 'top-content105': ((vm.vista === 'Listado de Localizadores') && !$parent.$parent.vm.mapaVisible), 'top-content64': ((vm.vista !== 'Listado de Localizadores') && !$parent.$parent.vm.mapaVisible) }">
+
+		<div ng-switch on="vm.vista" class="has-header">
+
+			<div class="animate-switch" ng-switch-when="Listado de Localizadores">
+				<div ng-include="'scripts/localizadores/templates/listaLocalizadores.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Detalle del Localizador">
+				<div ng-include="'scripts/localizadores/templates/detalleLocalizador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Usuarios del Localizador">
+				<div ng-include="'scripts/localizadores/templates/usuariosLocalizador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Posiciones del Localizador">
+				<div ng-include="'scripts/localizadores/templates/posicionesLocalizador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Sensores del Localizador">
+				<div ng-include="'scripts/localizadores/templates/sensoresLocalizador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Alarmas del Localizador">
+				<div ng-include="'scripts/localizadores/templates/alarmasLocalizador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+		</div>
+
+			
+
+	</ion-content>
+
+    <div class="tabs tabs-icon-top nuevosTabs mLocalizadores" ng-hide="vm.vista === 'Listado de Localizadores'">
+
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Detalle del Localizador'}" ng-click="vm.functions.toDetLocalizador()">
+    		<i class="icon ion-document-text"></i>
+    		Detalles
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Usuarios del Localizador'}" ng-click="vm.functions.toPartials('Usuarios del Localizador')">
+    		<i class="icon ion-person-stalker"></i>
+    		Usuarios
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Posiciones del Localizador'}" ng-click="vm.functions.toPartials('Posiciones del Localizador')">
+    		<i class="icon ion-qr-scanner"></i>
+    		Posiciones
+    	</a>
+    	<a class="tab-item" ng-show="vm.localizador.tieneSensor" ng-class="{ 'active': vm.vista === 'Sensores del Localizador'}" ng-click="vm.functions.toPartials('Sensores del Localizador')">
+    		<i class="icon ion-thermometer"></i>
+    		Sensores
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Alarmas del Localizador'}" ng-click="vm.functions.toPartials('Alarmas del Localizador')">
+    		<i class="icon ion-alert-circled"></i>
+    		Alarmas
+    	</a>
+    	
+    </div>
+</ion-view>

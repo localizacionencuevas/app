@@ -1,0 +1,72 @@
+<ion-view hide-back-button="true" view-title="Ajustes">
+
+	<!-- Cabecera -->
+ 	<ion-nav-buttons side="right">
+    	<button ng-show="vm.logged" menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+    	</button>
+ 	</ion-nav-buttons>
+
+ 	<!-- Contenido -->
+  	<ion-content padding="true" class="listaInstalaciones">
+	  	<div class="list moduloAjustes">
+	  		<form name="ajustesForm" ng-show="!vm.logged">
+			  	<label class="item item-input">
+			    	<span class="input-label">Url:</span>
+			    	<input type="text" ng-model="vm.url" required >
+			  	</label>
+			  	<label class="item item-input">
+			    	<span class="input-label">Url WS:</span>
+			    	<input type="text" ng-model="vm.urlWS" required >
+			  	</label>
+			</form>
+		  	<label class="predet" ng-show="vm.logged">Marque la instalación predeterminada</label>
+		  	<ul class="list">
+		  		<li class="item item-checkbox" ng-repeat="instalacion in vm.instalaciones">
+			     <label class="checkbox">
+			       <input type="radio" ng-model="vm.instPreferida" value="{{instalacion.id}}" />
+			     </label>
+			     {{instalacion.nombre}}
+			  </li>
+			  <!-- <li class="item item-checkbox">
+			     <label class="checkbox">
+			       <input type="checkbox">
+			     </label>
+			     Mina Romana de Cueva del Hierro
+			  </li>
+			  <li class="item item-checkbox">
+			     <label class="checkbox">
+			       <input type="checkbox">
+			     </label>
+			     Ciudad Encantada
+			  </li>
+			  <li class="item item-checkbox">
+			     <label class="checkbox">
+			       <input type="checkbox">
+			     </label>
+			     Segóbriga
+			  </li> -->
+			</ul>
+			<label class="toggle toggle-assertive" ng-show="vm.logged">
+				<input ng-model="vm.mostrarInstalacion" type="checkbox">
+			       	<div class="track">
+			        	<div class="handle"></div>
+			       	</div>
+            	<label class="textcheck"> - ¿Desea mostrar su instalación predeterminada directamente?</label>
+			</label>
+            
+		</div>
+		<button class="button button-block" ng-click="vm.functions.guardar()" ng-disabled="!ajustesForm.$valid">Guardar</button>
+		<button class="button button-block" ng-click="vm.functions.limpiar()" ng-disabled="!ajustesForm.$valid">Restablecer</button>
+		<button class="button button-block" ng-click="vm.functions.volver()" ng-disabled="!ajustesForm.$valid">Volver</button>
+  </ion-content>
+    <!-- <div class="tabs tabs-icon-top nuevosTabs">
+	  <a class="tab-item">
+	    <i class="icon ion-clipboard"></i>
+	    Lista
+	  </a>
+	  <a class="tab-item">
+	    <i class="icon ion-map"></i>
+	    Mapa
+	  </a>
+	</div> -->
+</ion-view>

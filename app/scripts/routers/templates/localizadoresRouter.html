@@ -1,0 +1,17 @@
+
+		  	<div class="list">
+
+          <label class="item item-input item-button-right" ng-repeat="loc in vm.router.nodos_dependientes" ng-click="vm.functions.irALocalizador(loc.id)">
+            <span class="input-label" ng-bind="loc.nombre"></span>
+            <span style="padding-left:15px"> ({{loc.rssi}} dB)</span>
+
+            <button class="button goBtn" ng-class="{ 'button-balanced': loc.nombre_estado === 'Conectado', 'button-assertive': loc.nombre_estado === 'Desconectado' }">
+              <i class="icon ion-wifi"></i>
+            </button>
+          </label>
+
+          <div ng-show="vm.router.nodos_dependientes.length === 0" style="text-align:center;margin-top:30px">
+            Este router no tiene Localizadores dependientes
+          </div>
+          			  
+			</div>

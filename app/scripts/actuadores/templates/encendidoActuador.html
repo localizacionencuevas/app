@@ -1,0 +1,21 @@
+
+		  <div class="list">
+        
+        <div ng-show="!vm.actuadorSinPosicion" class="tab-actuador" style="margin-top:10px; text-align:center">
+          <span ng-show="vm.encendido"><b>El encendido de este actuador está activado</b></span>
+          <span ng-show="!vm.encendido"><b>El encendido de este actuador está desactivado</b></span><br>
+          <button style="width: 200px; margin-top: 10px;" class="button" ng-class="{ 'button-balanced': vm.encendido, 'button-assertive': !vm.encendido }" ng-click="vm.functions.controlActuador()">
+            <span ng-show="vm.encendido">APAGAR</span>
+            <span ng-show="!vm.encendido">ENCENDER</span>
+          </button>
+        </div>
+        
+        <div ng-show="vm.actuadorSinPosicion" class="tab-actuador" style="margin-top:10px; text-align:center">
+          <span><b>El Actuador no está posicionado. Posiciónelo para poder usar esta funcionalidad</b></span>
+        </div>
+
+        <div>
+          <label style="margin-top:20px; text-align:center" ng-show="vm.esperaConfirmar"><h2>Esperando ws de confirmación</h2></label>
+        </div>
+			  
+			</div>

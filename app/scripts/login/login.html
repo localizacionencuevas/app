@@ -1,0 +1,24 @@
+<ion-view hide-nav-bar="true">
+<!-- <ion-view hide-back-button="true" hide-nav-bar="true"> -->
+	<ion-content style="top:0;" padding="true" class="loginView">
+	  	<div class="row logo">
+	  		<img src="images/logo.png" alt="">
+	  	</div>
+	    <div class="list moduloLogin">
+			<form name="loginForm">
+			  	<label class="item item-input">
+			    	<span class="input-label">Nombre de usuario:</span>
+			    	<input type="email" ng-model="vm.loginData.username" required focus="true">
+			  	</label>
+			  	<label class="item item-input">
+			   	 	<span class="input-label">Contraseña:</span>
+			    	<input type="password" ng-model="vm.loginData.password" required >
+			  	</label>
+			  </form>
+		</div>
+		<button class="button button-block" ng-click="vm.functions.submit()" ng-disabled="!loginForm.$valid">Enviar</button>
+	</ion-content>
+  	<div class="bar bar-footer settings">
+  		<button class="button button-clear pull-right" ng-click="vm.functions.toAjustes()"><img src="images/ajustes.png" alt=""></button>
+	</div>
+</ion-view>

@@ -1,0 +1,34 @@
+
+		  	<div class="list">
+
+            <div class="item" ng-repeat="monitorizado in vm.agente.dispositivos_monitorizados">
+              <h2>Dispositivo {{$index+1}}</h2>
+               
+              <label class="item item-input">
+                <span class="input-label">Nombre Dispositivo</span>
+                <label class="intensidadDb" ng-bind="monitorizado.nombre">
+                </label>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Frecuencia de Actualización</span>
+                <label class="intensidadDb" ng-bind="monitorizado.frecuencia_actualizacion">
+                </label>
+              </label>
+              <label ng-show="monitorizado.propiedades !== null" class="item item-input">
+                <span class="input-label">Valor Sintético</span>
+                <label class="intensidadDb" ng-bind="monitorizado.propiedades.valor_sintetico">
+                </label>
+              </label>
+              <label ng-show="monitorizado.propiedades !== null" class="item item-input">
+                <span class="input-label">Valor Calibración</span>
+                <label class="intensidadDb" ng-bind="monitorizado.propiedades.calibracion">
+                </label>
+              </label> 
+              
+              <!-- <button class="button goBtn" ng-class="{ 'button-balanced': loc.nombre_estado === 'Conectado', 'button-assertive': loc.nombre_estado === 'Desconectado' }">
+                <i class="icon ion-wifi"></i>
+              </button> -->
+            </div>
+
+          			  
+			</div>

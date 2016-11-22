@@ -1,0 +1,64 @@
+
+  		<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre:</span>
+  			    <label ng-bind="::vm.localizador.nombre"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Código:</span>
+  			    <label ng-bind="::vm.localizador.codigo"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Estado:</span>
+            <label ng-bind="::vm.localizador.nombre_estado"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Intensidad Señal:</span>
+            <label>{{::vm.localizador.rssi}} dB</label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Usuario Actual:</span>
+            <label ng-bind="::vm.localizador.nombre_usuario_actual"></label>
+        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Nivel de la batería:</span>
+  			    <label ng-bind="::vm.localizador.bateria"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Ubicación:</span>
+            <label ng-bind="::vm.localizador.nombre_ubicacion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Posición:</span>
+            <label ng-bind="::vm.localizador.posicion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Tiene Sensor:</span>
+            <label ng-bind="vm.functions.tieneSensor(vm.localizador.tieneSensor)"></label>
+        </label>
+        <label ng-show="vm.localizador.tieneSensor" class="item item-input">
+            <span class="input-label">Posición Sensor:</span>
+            <label ng-bind="::vm.localizador.posicionInfoSensores"></label>
+        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Depende de:</span>
+  			    <label ng-bind="vm.functions.obtenerRouter(vm.localizador.dependeDe)"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Última Actualización:</span>
+  			    <label ng-bind="vm.functions.transformDate(vm.localizador.ultimaActualizacion)"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Alta:</span>
+  			    <label ng-bind="vm.localizador.fechaAlta | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Modificación:</span>
+  			    <label ng-bind="vm.localizador.fechaModificacion | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Observaciones:</span>
+  			    <label ng-bind="::vm.localizador.observaciones"></label>
+  			</label>
+			</div>
+		</div>

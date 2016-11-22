@@ -1,0 +1,48 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+
+	<div class="list">
+		<div class="item item-divider item-button-right nomInst mAlarmas" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()" ng-class="{ 'titulo-padding': vm.vista === 'Listado de Alarmas'}">
+			{{vm.vista}}
+
+      <button class="button button-icon pull-right ion-home backFicha ngHide" ng-show="vm.vista !== 'Listado de Alarmas'" ng-click="vm.functions.toListaAlarmas()">
+      </button>
+
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+	</div>
+	
+	<ion-content padding="false" class="listaInstalaciones" ng-class="{ 'top-content38': $parent.$parent.vm.mapaVisible, 'top-content64': !$parent.$parent.vm.mapaVisible }">
+
+    <div ng-switch on="vm.vista" class="has-header">
+
+      <div class="animate-switch" ng-switch-when="Listado de Alarmas">
+        <div ng-include="'scripts/alarmas/templates/listaAlarmas.html'" class="animate-include">
+          
+        </div>
+      </div>
+
+      <div class="animate-switch" ng-switch-when="Detalle de Alarma">
+        <div ng-include="'scripts/alarmas/templates/detalleAlarma.html'" class="animate-include">
+          
+        </div>
+      </div>
+
+    </div>
+
+
+	</ion-content>
+
+</ion-view>

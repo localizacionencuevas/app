@@ -1,0 +1,82 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+
+	<div class="list">
+		<div class="item item-divider nomInst" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()">
+			{{vm.titulo}}
+
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+	</div>
+	
+	<ion-content padding="false" class="listaInstalaciones" ng-class="{ 'top-content38': $parent.$parent.vm.mapaVisible, 'top-content64': !$parent.$parent.vm.mapaVisible }">
+
+	  	<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre:</span>
+  			    <label ng-bind="vm.instalacion.nombre"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Código:</span>
+  			    <label ng-bind="vm.instalacion.codigo"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Estado:</span>
+  			    <label ng-bind="vm.instalacion.nombre_estado"></label>
+  			</label>
+	        <label class="item item-input">
+	            <span class="input-label">Domicilio:</span>
+	            <label ng-bind="vm.instalacion.domicilio"></label>
+	        </label>
+	        <label class="item item-input">
+	            <span class="input-label">Localidad:</span>
+	            <label ng-bind="vm.instalacion.localidad"></label>
+	        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Provincia:</span>
+  			    <label ng-bind="vm.instalacion.nombre_provincia"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Tipo de Instalación:</span>
+  			    <label ng-bind="vm.instalacion.nombre_tipo"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Latitud:</span>
+  			    <label ng-bind="vm.instalacion.lat"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Longitud:</span>
+  			    <label ng-bind="vm.instalacion.lng"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Observaciones:</span>
+  			    <label ng-bind="vm.instalacion.observaciones"></label>
+  			</label>
+  			<label class="item">
+  			    <span class="input-label">Tipos de dispositivos de la instalación:</span>
+  			    <div class="list">
+  					<label class="item item-input" ng-repeat="tipo in vm.instalacion.tipos_dispositivos">
+  						<span class="input-label col-25">Nombre:</span>
+  			    		<label class="col-25" ng-bind="tipo.nombre"></label>
+  						<!-- <span class="input-label col-25">Frecuencia de actualización:</span>
+  			    		<label class="col-25" ng-bind="tipo.frecuenciaActualizacion"></label> -->
+  					</label>
+				</div>
+  			</label>
+        </div>
+
+	</ion-content>
+
+</ion-view>

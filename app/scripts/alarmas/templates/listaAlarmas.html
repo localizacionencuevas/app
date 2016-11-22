@@ -1,0 +1,39 @@
+
+	  	<div class="list">
+
+        <div class="item item-divider row" ng-show="vm.alarmas.length > 0" >
+          <div class="col col-25">
+            Nombre Alarma
+          </div>
+          <div class="col col-25">
+            Fecha inicio
+          </div>
+          <div class="col col-25">
+            Código Disp.
+          </div>
+          <div class="col col-25">
+            Número rep.
+          </div>
+        </div>
+
+        <div class="item row" ng-repeat="alarma in vm.alarmas" ng-click="vm.functions.toDetAlarma($index)">
+          <div class="col col-25">
+            <span ng-bind="alarma.nombre_alarma"></span>
+          </div>
+          <div class="col col-25">
+            <span ng-bind="alarma.fechaInicioAlarma | date:'short'"></span>
+          </div>
+          <div class="col col-25">
+            <span ng-bind="alarma.codigo_dispositivo"></span>
+          </div>
+          <div class="col col-25">
+            <span ng-bind="alarma.numeroAlarmasProducidas"></span>
+          </div>
+        </div>
+
+
+        <div ng-show="vm.alarmas.length === 0" style="text-align:center;margin-top:30px">
+          Esta instalación no tiene Alarmas Pendientes
+        </div>
+
+      </div>

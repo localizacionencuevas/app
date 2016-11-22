@@ -1,0 +1,34 @@
+
+		  	<div class="list">
+          <div class="item item-divider">
+          6 Últimas posiciones 
+          </div>
+          <div class="item" ng-repeat="posicion in vm.localizador.ultimas_posiciones">
+            <h2>Posición {{$index+1}}</h2>
+             
+            <label class="item item-input">
+              <span class="input-label">Padre</span>
+              <label class="intensidadDb" ng-bind="posicion.nombre_padre">
+              </label>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Posicion</span>
+              <label class="intensidadDb" ng-bind="vm.functions.getPosicionPadre(posicion.dispositivo_padre)">
+              </label>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Fecha</span>
+              <label class="intensidadDb" ng-bind="posicion.fecha">
+              </label>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Distancia al padre</span>
+              <label class="intensidadDb" ng-bind="posicion.distancia_teorica">
+              </label>
+            </label> 
+          </div>
+
+          <div ng-show="vm.ultimasPosiciones.length === 0" style="text-align:center;margin-top:30px">
+            Este Localizador no tiene posiciones anteriores
+          </div>	  
+			</div>

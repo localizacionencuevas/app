@@ -1,0 +1,48 @@
+
+  		<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre:</span>
+  			    <label ng-bind="::vm.actuador.nombre"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Código:</span>
+  			    <label ng-bind="::vm.actuador.codigo"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Estado:</span>
+  			    <label ng-bind="::vm.actuador.nombre_estado"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Ubicación:</span>
+            <label ng-bind="::vm.actuador.nombre_ubicacion"></label>
+        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Posición:</span>
+  			    <label ng-bind="::vm.actuador.posicion"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Tiene Sensor:</span>
+            <label ng-bind="vm.functions.tieneSensor(vm.actuador.tieneSensor)"></label>
+        </label>
+        <label ng-show="vm.actuador.tieneSensor" class="item item-input">
+            <span class="input-label">Posición Sensor:</span>
+            <label ng-bind="::vm.actuador.posicionInfoSensores"></label>
+        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Última Actualización:</span>
+  			    <label ng-bind="vm.functions.transformDate(vm.actuador.ultimaActualizacion)"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Alta:</span>
+  			    <label ng-bind="vm.actuador.fechaAlta | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Modificación:</span>
+  			    <label ng-bind="vm.actuador.fechaModificacion | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Observaciones:</span>
+  			    <label ng-bind="::vm.actuador.observaciones"></label>
+  			</label>
+			</div>
+		</div>

@@ -1,0 +1,48 @@
+
+  		<div class="list">
+  			<label class="item item-input">
+  				<span class="input-label">Nombre:</span>
+  			    <label ng-bind="vm.agente.nombre"></label>
+  			</label>
+  			<label class="item item-input">
+  				<span class="input-label">Código:</span>
+  			    <label ng-bind="vm.agente.codigo"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Estado:</span>
+  			    <label ng-bind="::vm.agente.nombre_estado"></label>
+  			</label>
+        <label class="item item-input">
+            <span class="input-label">Ubicación:</span>
+            <label ng-bind="::vm.agente.nombre_ubicacion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Posición:</span>
+            <label ng-bind="::vm.agente.posicion"></label>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Tiene Sensor:</span>
+            <label ng-bind="vm.functions.tieneSensor(vm.agente.tieneSensor)"></label>
+        </label>
+        <label ng-show="vm.agente.tieneSensor" class="item item-input">
+            <span class="input-label">Posición Sensor:</span>
+            <label ng-bind="::vm.agente.posicionInfoSensores"></label>
+        </label>
+  			<label class="item item-input">
+  			    <span class="input-label">Última Actualización:</span>
+  			    <label ng-bind="vm.functions.transformDate(vm.agente.ultimaActualizacion)"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Alta:</span>
+  			    <label ng-bind="vm.agente.fechaAlta | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Fecha de Modificación:</span>
+  			    <label ng-bind="vm.agente.fechaModificacion | date:'d/M/yyyy'"></label>
+  			</label>
+  			<label class="item item-input">
+  			    <span class="input-label">Observaciones:</span>
+  			    <label ng-bind="::vm.agente.observaciones"></label>
+  			</label>
+			</div>
+		</div>

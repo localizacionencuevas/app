@@ -1,0 +1,105 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+
+	<div class="list">
+		<div class="item item-divider item-button-right nomInst mAgentes" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()" ng-class="{ 'titulo-padding': vm.vista === 'Listado de Agentes'}">
+			{{vm.titulo}}
+
+			<button class="button button-icon pull-right ion-home backFicha ngHide" ng-show="vm.vista !== 'Listado de Agentes'" ng-click="vm.functions.toListaAgentes()">
+			</button>
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+
+		<div class="bar item-input-inset" ng-show="vm.vista === 'Listado de Agentes'">
+		    <div class="item-input-wrapper">
+		      <i class="icon ion-ios7-search placeholder-icon"></i>
+		      <input type="search" placeholder="Filtrar" ng-model="vm.filtrar" ng-change="vm.functions.resizeScroll()">
+		    </div>
+		        <button class="button button-clear" ng-click="vm.filtrar=''">
+		          Limpiar
+		        </button>
+		</div>
+
+	</div>
+	
+	<ion-content padding="false" ng-class="{ 'has-footer': vm.vista !== 'Listado de Agentes', 'top-content38': ((vm.vista !== 'Listado de Agentes') && $parent.$parent.vm.mapaVisible), 'top-content80': ((vm.vista === 'Listado de Agentes') && $parent.$parent.vm.mapaVisible), 'top-content105': ((vm.vista === 'Listado de Agentes') && !$parent.$parent.vm.mapaVisible), 'top-content64': ((vm.vista !== 'Listado de Agentes') && !$parent.$parent.vm.mapaVisible) }">
+
+		<div ng-switch on="vm.vista" class="has-header">
+
+			<div class="animate-switch" ng-switch-when="Listado de Agentes">
+				<div ng-include="'scripts/agentes/templates/listaAgentes.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Detalle del Agente">
+				<div ng-include="'scripts/agentes/templates/detalleAgente.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Monitorización del Agente">
+				<div ng-include="'scripts/agentes/templates/monitorizacionAgente.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Sensores del Agente">
+				<div ng-include="'scripts/agentes/templates/sensoresAgente.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Estadísticas del Agente">
+				<div ng-include="'scripts/agentes/templates/estadisticasAgente.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Calibración Fingerprinting">
+				<div ng-include="'scripts/agentes/templates/calibracionFingerprinting.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+		</div>
+
+			
+
+	</ion-content>
+
+    <div class="tabs tabs-icon-top nuevosTabs mAgentes" ng-hide="vm.vista === 'Listado de Agentes'">
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Detalle del Agente'}" ng-click="vm.functions.toDetAgente()">
+    		<i class="icon ion-document-text"></i>
+    		Detalles
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Monitorización del Agente'}" ng-click="vm.functions.toPartials('Monitorización del Agente')">
+    		<i class="icon ion-location"></i>
+    		Monitorización
+    	</a>
+    	<a class="tab-item" ng-show="vm.agente.tieneSensor" ng-class="{ 'active': vm.vista === 'Sensores del Agente'}" ng-click="vm.functions.toPartials('Sensores del Agente')">
+    		<i class="icon ion-thermometer"></i>
+    		Sensores
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Estadísticas del Agente'}" ng-click="vm.functions.toPartials('Estadísticas del Agente')">
+    		<i class="icon ion-stats-bars"></i>
+    		Estadísticas
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Calibración Fingerprinting'}" ng-click="vm.functions.toPartials('Calibración Fingerprinting')">
+    		<i class="icon ion-compass"></i>
+    		Calibración
+    	</a>
+    </div>
+</ion-view>

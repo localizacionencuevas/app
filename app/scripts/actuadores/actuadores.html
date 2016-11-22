@@ -1,0 +1,86 @@
+<ion-view hide-back-button="false" view-title="{{vm.nombreInstalacion}}">
+
+  <!-- Cabecera -->
+  <!-- <ion-nav-buttons side="right">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon menuBtn bar-positive">
+      </button>
+  </ion-nav-buttons> -->
+
+  <!-- Contenido -->
+	
+	<div class="list">
+		<div class="item item-divider item-button-right nomInst mActuadores" on-drag-up="vm.functions.onDragUp()" on-drag-down="vm.functions.onDragDown()" ng-class="{ 'titulo-padding': vm.vista === 'Listado de Actuadores'}">
+			{{vm.titulo}}
+			<!-- {{vm.router.nombre}} -->
+
+			<button class="button button-icon pull-right ion-home backFicha" ng-show="vm.vista !== 'Listado de Actuadores'" ng-click="vm.functions.toListaActuadores()">
+			</button>
+		</div>
+
+	    <div class="down-arrow" ng-show="!$parent.$parent.vm.mapaVisible" ng-click="vm.functions.onDragDown()">
+	      <div style="width:50px; margin: 0 auto;">
+	        <img src="images/DownArrow.png"> 
+	      </div>
+	    </div>
+
+		<div class="bar item-input-inset" ng-show="vm.vista === 'Listado de Actuadores'">
+		    <div class="item-input-wrapper">
+		      <i class="icon ion-ios7-search placeholder-icon"></i>
+		      <input type="search" placeholder="Filtrar" ng-model="vm.filtrar" ng-change="vm.functions.resizeScroll()">
+		    </div>
+		        <button class="button button-clear" ng-click="vm.filtrar=''">
+		          Limpiar
+		        </button>
+		</div>
+
+	</div>
+	
+	<ion-content padding="false" ng-class="{ 'has-footer': vm.vista !== 'Listado de Actuadores', 'top-content38': ((vm.vista !== 'Listado de Actuadores') && $parent.$parent.vm.mapaVisible), 'top-content80': ((vm.vista === 'Listado de Actuadores') && $parent.$parent.vm.mapaVisible), 'top-content105': ((vm.vista === 'Listado de Actuadores') && !$parent.$parent.vm.mapaVisible), 'top-content64': ((vm.vista !== 'Listado de Actuadores') && !$parent.$parent.vm.mapaVisible) }">
+
+		<div ng-switch on="vm.vista" class="has-header">
+
+			<div class="animate-switch" ng-switch-when="Listado de Actuadores">
+				<div ng-include="'scripts/actuadores/templates/listaActuadores.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Detalle del Actuador">
+				<div ng-include="'scripts/actuadores/templates/detalleActuador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Sensores del Actuador">
+				<div ng-include="'scripts/actuadores/templates/sensoresActuador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+			<div class="animate-switch" ng-switch-when="Encendido del Actuador">
+				<div ng-include="'scripts/actuadores/templates/encendidoActuador.html'" class="animate-include">
+					
+				</div>
+			</div>
+
+		</div>
+
+			
+
+	</ion-content>
+
+    <div class="tabs tabs-icon-top nuevosTabs mActuadores" ng-hide="vm.vista === 'Listado de Actuadores'">
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Detalle del Actuador'}" ng-click="vm.functions.toDetActuador()">
+    		<i class="icon ion-document-text"></i>
+    		Detalles
+    	</a>
+    	<a class="tab-item" ng-show="vm.actuador.tieneSensor" ng-class="{ 'active': vm.vista === 'Sensores del Actuador'}" ng-click="vm.functions.toPartials('Sensores del Actuador')">
+    		<i class="icon ion-thermometer"></i>
+    		Sensores
+    	</a>
+    	<a class="tab-item" ng-class="{ 'active': vm.vista === 'Encendido del Actuador'}" ng-click="vm.functions.toPartials('Encendido del Actuador')">
+    		<i class="icon ion-power"></i>
+    		Encender/Apagar
+    	</a>
+    </div>
+</ion-view>

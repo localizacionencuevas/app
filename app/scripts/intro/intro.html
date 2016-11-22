@@ -1,0 +1,41 @@
+<ion-view  hide-back-button="true" title="">
+  <ion-nav-buttons side="left">
+    <button class="button button-positive button-clear no-animation"
+      ng-click="vm.functions.saltarIntro()">
+      Saltar Intro
+    </button>
+  </ion-nav-buttons>
+
+  <ion-slide-box on-slide-changed="slideChanged(index)">
+    <ion-slide>
+      <h3>Bienvenido a la App de Localización en Cuevas</h3>
+      <div id="logo">
+        <img src="images/logopp.png">
+      </div>
+      <p>
+        Controla tus instalaciones con todo detalle
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <h3>Fácil Manejo</h3>
+      <div id="list">
+        <h5>Sigue estos pasos:</h5>
+        <ol>
+          <li>Haz log-in con tus datos</li>
+          <li>Selecciona una instalación</li>
+          <li>Navega por las diferentes opciones para Router, Localizadores, Agentes y Actuadores</li>
+        </ol>
+      </div>
+    </ion-slide>
+
+    <ion-slide >
+      <h3>Así de sencillo</h3>
+      <p>
+        Ahora, inicia sesión
+      </p>
+      <button class="button button-block" ng-click="functions.saltarIntro()">Iniciar</button>
+    </ion-slide>
+  </ion-slide-box>
+
+</ion-view>
